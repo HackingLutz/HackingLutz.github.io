@@ -1,0 +1,166 @@
+@font-face {
+    font-family: Avenir Heavy;
+    src: url('Avenir-Heavy-05.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Avenir Medium;
+    src: url('Avenir-Medium-09.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Avenir Oblique Medium;
+    src: url('Avenir-MediumOblique-10.ttf') format('truetype');
+}
+@font-face {
+    font-family: Avenir Oblique Heavy;
+    src: url('Avenir-HeavyOblique-06.ttf') format('truetype');
+}
+
+/* Reset some default styles */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #f5f5f5;
+  color: #1b1b1b;
+  font-family: 'Avenir Medium';
+}
+
+.a4-container {
+  height: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.nav {
+    position: absolute;
+    top: calc(50% - 50px);
+    transition: all 0.5s ease-out;
+    opacity: 0.1;
+}
+
+.nav:hover {
+    opacity: 1;
+    transition: all 0.4s ease;
+}
+
+.nav img {
+    height: 100px;
+}
+
+.leftnav {
+    left: calc(50% - 460px);
+}
+
+.leftnav:hover{
+    left:calc(50% - 470px);  
+}
+
+.rightnav {
+  right: calc(50% - 460px);
+}
+
+.rightnav:hover{
+    right:calc(50% - 470px);
+}
+
+.a4-sheet {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1 / 1.414;
+
+  max-width: 210mm;
+  max-height: 297mm;
+
+  width: 90vw;
+  height: auto;
+
+  background-color: white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.text-wrapper, .grid-wrapper{
+    position: absolute;
+}
+
+.grid-wrapper{
+    z-index: 1;
+    padding: 15mm;
+    width: calc(100% - 30mm);
+    height: calc(100% - 30mm);
+}
+
+.grid {
+    display: inline-block;
+    margin-right: 20px;
+    height: calc(100% - 30mm);
+    border: 1px solid #e0e0e0;
+    width: calc(15% - 20px);
+}
+
+.text-wrapper{
+    z-index: 2;
+    height: calc(100% - 30mm);
+    width: calc(100% - 30mm);
+    padding: 15mm;
+}
+
+.title {
+    width: 100%;
+    font-family: 'Avenir Heavy';
+    padding-top: 20mm;
+    margin-left: -5px;
+    font-size: 80px;
+    text-align: center;
+}
+
+.lu {
+    text-align: right;
+    font-size: 60px;
+    font-family: 'Avenir Heavy';
+}
+
+.tz {
+    text-align: left;
+    font-size: 60px;
+    font-family: 'Avenir Heavy';
+}
+
+/* For browsers that don't support aspect-ratio (fallback) */
+@supports not (aspect-ratio: 1 / 1.414) {
+  .a4-sheet::before {
+    float: left;
+    padding-top: 141.4%; /* 1 / 1.414 * 100% */
+    content: "";
+  }
+
+  .a4-sheet::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+/* Portrait orientation on mobile */
+@media (orientation: portrait) {
+  .a4-sheet {
+    width: 90vw;
+    height: auto;
+  }
+}
+
+/* Landscape orientation on mobile/tablet */
+@media (orientation: landscape) {
+  .a4-sheet {
+    width: auto;
+    height: 90vh;
+  }
+}
