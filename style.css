@@ -17,7 +17,6 @@
     src: url('Avenir-HeavyOblique-06.ttf') format('truetype');
 }
 
-/* Reset some default styles */
 body,
 html {
   margin: 0;
@@ -87,58 +86,76 @@ html {
   overflow: auto;
 }
 
-.text-wrapper, .grid-wrapper{
-    position: absolute;
+.content-wrapper {
+  padding: 10mm;
+  height: 100%;
+  width: 100%;
+  height: calc(100% - 20mm);
+  width: calc(100% - 20mm);
 }
 
 .grid-wrapper{
-    z-index: 1;
-    padding: 15mm;
-    width: calc(100% - 30mm);
-    height: calc(100% - 30mm);
+  position: absolute;
+  height: calc(100% - 20mm);
+  width: calc(100% - 20mm);
+}
+
+.top-line {
+  position: absolute;
+  top: 7mm; 
+  width: 99.2%;
+  border: 1px solid grey;
 }
 
 .grid {
-    display: inline-block;
-    margin-right: 20px;
-    height: calc(100% - 30mm);
-    border: 1px solid #e0e0e0;
-    width: calc(15% - 20px);
+  width: 14.5%;
+  float: left;
+  height: 100%;
+  margin-right: 2.1%;
+  border: 1px solid grey;
 }
 
-.text-wrapper{
-    z-index: 2;
-    height: calc(100% - 30mm);
-    width: calc(100% - 30mm);
-    padding: 15mm;
+.grid .numb {
+padding-left: 0px;
+padding-top: 6px;
+font-size: 10px;
+font-family: 'Avenir Medium';
+}
+
+.grid:last-child {
+  margin-right: 0;
+}
+
+.text-wrapper {
+  position: absolute;
+  height: calc(100% - 20mm);
+  width: calc(100% - 20mm);
 }
 
 .title {
-    width: 100%;
-    font-family: 'Avenir Heavy';
-    padding-top: 20mm;
-    margin-left: -5px;
-    font-size: 80px;
-    text-align: center;
+  position: absolute;
+  top: 15%;
+  left: -3%;
+  right: 0;
+  text-align: center;
+  /* margin-left: -8px; */
+  font-size: 100px;
+  font-family: 'Avenir Heavy';
 }
 
-.lu {
-    text-align: right;
-    font-size: 60px;
-    font-family: 'Avenir Heavy';
+.lutz {
+  transform: rotate(-90deg);
+  position: absolute;
+  bottom: 31px;
+  left: 48px;
+  font-size: 150px;
+  font-family: 'Avenir Heavy';
 }
 
-.tz {
-    text-align: left;
-    font-size: 60px;
-    font-family: 'Avenir Heavy';
-}
-
-/* For browsers that don't support aspect-ratio (fallback) */
 @supports not (aspect-ratio: 1 / 1.414) {
   .a4-sheet::before {
     float: left;
-    padding-top: 141.4%; /* 1 / 1.414 * 100% */
+    padding-top: 141.4%;
     content: "";
   }
 
@@ -149,7 +166,6 @@ html {
   }
 }
 
-/* Portrait orientation on mobile */
 @media (orientation: portrait) {
   .a4-sheet {
     width: 90vw;
@@ -157,7 +173,6 @@ html {
   }
 }
 
-/* Landscape orientation on mobile/tablet */
 @media (orientation: landscape) {
   .a4-sheet {
     width: auto;
